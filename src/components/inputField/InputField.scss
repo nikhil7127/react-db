@@ -1,0 +1,30 @@
+@import "../../constants/SCSS/constant-values.scss";
+.input-field {
+  width: 100%;
+  margin-bottom: 10px;
+
+  & .sendOTP {
+    color: $secondaryColor;
+    text-align: end;
+    padding-right: 35px;
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+
+  & input {
+    width: 70%;
+    border: 1px solid rgb(189, 173, 173);
+    border-radius: 5px;
+    padding: 10px;
+    overflow: hidden;
+    outline: none;
+    transition: border-color 255ms ease-in-out;
+
+    &:focus {
+      border-color: rgb(88, 86, 86);
+    }
+    &::placeholder {
+      font-size: 0.9em;
+    }
+  }
+}

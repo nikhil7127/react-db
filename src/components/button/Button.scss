@@ -1,0 +1,19 @@
+@import "../../constants/SCSS/constant-functions.scss";
+@import "../../constants/SCSS/constant-values.scss";
+.button {
+  width: 70%;
+  height: 10%;
+  @include center(row);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+  padding: 10px;
+  background-color: $primaryColor;
+  opacity: 0.7;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
