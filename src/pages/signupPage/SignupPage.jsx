@@ -3,6 +3,8 @@ import Button from "../../components/button/Button";
 import InputField from "../../components/inputField/InputField";
 import "./SignupPage.scss";
 import logo from "../../assets/logo.png";
+import HelpDialog from "../../components/helpDialog/HelpDialog";
+import { signupFieldValues } from "../../constants/Auth/AuthConstants";
 
 const SignupPage = (props) => {
   return (
@@ -12,30 +14,17 @@ const SignupPage = (props) => {
           <img src={logo} alt="logo"></img>
         </div>
         <div className="signup-form">
-          <InputField
-            placeholder="Username"
-            type="text"
-            className="signup-username"
-          />
-          <InputField
-            placeholder="Email"
-            type="email"
-            className="sigup-email"
-            sendOTP={true}
-          />
-          <InputField placeholder="OTP" type="number" className="OTP" />
-          <InputField
-            placeholder="Password"
-            type="password"
-            className="signup-password"
-          />
+          {signupFieldValues.map((feildValue) => (
+            <InputField {...feildValue} />
+          ))}
           <Button text="Sign up" />
         </div>
       </div>
-      <div className="help">
-        Already have a account ?
-        <div onClick={() => props.history.push("/login")}>Login</div>
-      </div>
+      <HelpDialog
+        text="Already have an account! "
+        route={() => props.history.push("/login")}
+        routeText="Login"
+      />
     </div>
   );
 };

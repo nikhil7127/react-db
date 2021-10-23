@@ -1,0 +1,16 @@
+@import "../../constants/SCSS/constant-functions.scss";
+@import "../../constants/SCSS/constant-values.scss";
+
+.help {
+  @include center(row);
+  width: 300px;
+  height: 10%;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: $secondaryColor;
+  background-color: $authContainerColor;
+  & div {
+    cursor: pointer;
+    color: rgb(0, 183, 255);
+  }
+}

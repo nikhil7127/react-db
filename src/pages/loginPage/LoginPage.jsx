@@ -3,6 +3,8 @@ import Button from "../../components/button/Button";
 import InputField from "../../components/inputField/InputField";
 import "./LoginPage.scss";
 import logo from "../../assets/logo.png";
+import HelpDialog from "../../components/helpDialog/HelpDialog";
+import { loginFieldValues } from "../../constants/Auth/AuthConstants";
 
 const LoginPage = (props) => {
   return (
@@ -12,24 +14,18 @@ const LoginPage = (props) => {
           <img src={logo} alt="logo"></img>
         </div>
         <div className="login-form">
-          <InputField
-            placeholder="Username or Email"
-            type="text"
-            className="login-username"
-          />
-          <InputField
-            placeholder="Password"
-            type="password"
-            className="login-password"
-          />
+          {loginFieldValues.map((feildValue) => (
+            <InputField {...feildValue} />
+          ))}
           <Button text="login" />
         </div>
         <div className="reset-password">Forgot Password?</div>
       </div>
-      <div className="help">
-        Didn't have a account ?
-        <div onClick={() => props.history.push("/signup")}> Sign up</div>
-      </div>
+      <HelpDialog
+        text="Didn't have an account?"
+        route={() => props.history.push("/signup")}
+        routeText="Sign up"
+      />
     </div>
   );
 };
